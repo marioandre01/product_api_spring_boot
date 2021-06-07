@@ -152,31 +152,23 @@ Agora acessar as rotas da API para usar os seus serviços. Para acessar as rotas
     ]  
   ```
   
-- get-products-category-id (Não está funcionado no momento)
+- get-products-category-id
 
-  [GET] `http://localhost:8081/product/category/2`
+  [GET] `http://localhost:8081/product/category/1`
   #### Resposta: 
   ```bash   
     [
       {
-        "productIdentifier": "Sofá",
-        "nome": "Sofá soft",
-        "preco": 400.0,
-        "descricao": "Uma sofá",
-        "category": {
-          "id": 2,
-          "nome": "Móveis"
-        }
+        "nome": "tv led",
+        "preco": 2000.0,
+        "descricao": "Uma tv",
+        "productIdentifier": "tv"
       },
       {
-        "productIdentifier": "cama",
-        "nome": "Cama box",
-        "preco": 700.0,
-        "descricao": "Uma cama box",
-        "category": {
-          "id": 2,
-          "nome": "Móveis"
-        }
+        "nome": "notebook dell",
+        "preco": 3000.0,
+        "descricao": "Uma notebook",
+        "productIdentifier": "notebook"
       }
     ]
   ```

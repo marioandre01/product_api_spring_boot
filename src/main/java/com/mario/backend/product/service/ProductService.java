@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mario.backend.product.dto.ProductByCategoryDTO;
 import com.mario.backend.product.dto.ProductDTO;
 import com.mario.backend.product.model.Product;
 import com.mario.backend.product.repository.ProductRepository;
@@ -29,14 +30,18 @@ public class ProductService {
 		.collect(Collectors.toList());
 	}
 	
-	public List<ProductDTO> getProductByCategoryId(Long categoryId) {
-	
-		List<Product> products = productRepository.getProductByCategory(categoryId);
+//	public List<ProductDTO> getProductByCategoryId(Long categoryId) {
+	public List<ProductByCategoryDTO> getProductByCategoryId(Long categoryId) {
 		
-		return products
-		.stream()
-		.map(ProductDTO::convertToProductDTO)
-		.collect(Collectors.toList());
+//		List<Product> products = productRepository.getProductByCategory(categoryId);
+		List<ProductByCategoryDTO> products = productRepository.getProductByCategory2(categoryId);
+		
+//		return products
+//		.stream()
+//		.map(ProductDTO::convertToProductDTO)
+//		.collect(Collectors.toList());
+		
+		return products;
 	}
 	
 	public ProductDTO findByProductIdentifier(String productIdentifier) {

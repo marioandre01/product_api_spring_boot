@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mario.backend.product.dto.ProductByCategoryDTO;
 import com.mario.backend.product.dto.ProductDTO;
 import com.mario.backend.product.exception.ProductNotFoundException;
 import com.mario.backend.product.service.ProductService;
@@ -25,14 +26,17 @@ public class productController {
 	@GetMapping("/product")
 	public List<ProductDTO> getProducts() {
 		List<ProductDTO> produtos = productService.getAll();
+		
 		return produtos;
 	}
 	
 	@GetMapping("/product/category/{categoryId}")
-	public List<ProductDTO> getProductByCategory(@PathVariable Long categoryId) {
-	
-		List<ProductDTO> produtos = productService.getProductByCategoryId(categoryId);
-
+//	public List<ProductDTO> getProductByCategory(@PathVariable Long categoryId) {
+	public List<ProductByCategoryDTO> getProductByCategory(@PathVariable Long categoryId) {		
+		
+//		List<ProductDTO> produtos = productService.getProductByCategoryId(categoryId);	
+		List<ProductByCategoryDTO> produtos = productService.getProductByCategoryId(categoryId);	
+		
 		return produtos;
 	}
 	

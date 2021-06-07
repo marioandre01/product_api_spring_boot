@@ -10,13 +10,14 @@ import org.springframework.stereotype.Repository;
 import com.mario.backend.product.model.Product;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product,Long> {
+public interface ProductRepository extends JpaRepository<Product,Long>, SearchCategoryRepository {
 	
-	@Query(value = "select p.nome, p.preco, p.productIdentifier "
+	@Query(value = "select p "
+//	@Query(value = "select p.nome, p.preco, p.productIdentifier, p.descricao "
 			+ "from product p "
 			+ "join category c on p.category.id = c.id "
 			+ "where c.id = :categoryId ")
 	public List<Product> getProductByCategory(@Param("categoryId") long categoryId);
-			
+	
 	public Product findByProductIdentifier(String productIdentifier);
 }

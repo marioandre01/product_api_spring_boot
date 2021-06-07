@@ -11,6 +11,7 @@ import com.mario.backend.product.dto.ProductDTO;
 
 import lombok.Data;
 
+
 @Data // gera os gets e sets da classe
 @Entity(name="product")
 public class Product {
